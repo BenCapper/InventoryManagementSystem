@@ -44,11 +44,9 @@ class FirebaseStock : StockStore, AnkoLogger {
     }
 
 
-    override fun filterStock(stockName: String): List<StockModel> {
-        return stock.filter { b -> b.name.toLowerCase().contains(stockName.toLowerCase()) }
+    override fun filterStock(id: Long): List<StockModel> {
+        return stock.filter { item -> item.branch != id}
     }
 
-    override fun search(id: Long): List<StockModel> {
-        return stock.filter { s -> s.branch == id }
-    }
+
 }

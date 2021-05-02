@@ -58,17 +58,14 @@ class StockJSONStore : StockStore, AnkoLogger {
         serialize()
     }
 
-    override fun filterStock(stockName: String): List<StockModel> {
-        return stocks.filter { s -> s.name.toLowerCase().contains(stockName.toLowerCase()) }
-    }
-
-    override fun search(id: Long): List<StockModel> {
-        TODO("Not yet implemented")
-    }
 
     override fun delete(stock: StockModel) {
         stocks.remove(stock)
         serialize()
+    }
+
+    override fun filterStock(id: Long): List<StockModel> {
+        TODO("Not yet implemented")
     }
 
     private fun serialize() {

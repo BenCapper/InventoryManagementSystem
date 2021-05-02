@@ -8,10 +8,13 @@ import android.view.MenuItem
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_building_list.recyclerView
 import kotlinx.android.synthetic.main.activity_building_list.toolbar
 import kotlinx.android.synthetic.main.activity_stock_list.*
@@ -24,6 +27,10 @@ import org.wit.inventory.models.StockModel
 
 class StockListActivity : AppCompatActivity(), StockListener {
 
+    private companion object{
+        private const val TAG = "StockListActivity"
+    }
+    private lateinit var auth: FirebaseAuth
     lateinit var app: MainApp
     private lateinit var stockList: MutableList<StockModel>
     private lateinit var foundList: MutableList<StockModel>
@@ -38,8 +45,9 @@ class StockListActivity : AppCompatActivity(), StockListener {
         recyclerView.layoutManager = layoutManager
         getStockData()
         app = application as MainApp
+        auth = Firebase.auth
         branchStock = intent.extras?.getParcelable<BuildingModel>("branchName")!!
-
+        loadBranchStock()
         toolbar.title = branchStock.name + " " + "Stock"
         setSupportActionBar(toolbar)
 
@@ -67,6 +75,14 @@ class StockListActivity : AppCompatActivity(), StockListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val branchStock = intent.extras?.getParcelable<BuildingModel>("branchName")!!
+        if(item.itemId == R.id.logout){
+            Log.i(TAG, "Logout")
+            //LogoutUser
+            auth.signOut()
+            val logoutIntent = Intent(this, LoginActivity::class.java)
+            logoutIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(logoutIntent)
+        }
         when (item.itemId) {
             R.id.item_add -> startActivityForResult(
                 intentFor<StockActivity>().putExtra(
@@ -107,10 +123,14 @@ class StockListActivity : AppCompatActivity(), StockListener {
                 if (snapshot.exists()) {
                     for (stockSnap in snapshot.children) {
                         val stock = stockSnap.getValue(StockModel::class.java)
-                        stockList.add(stock!!)
+                        if (stock != null) {
+                            if (stock.branch == branchStock.id) {
+                                stockList.add(stock!!)
+                            }
+                        }
                     }
+                    showStock(stockList)
                 }
-                showStock(stockList)
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -120,7 +140,8 @@ class StockListActivity : AppCompatActivity(), StockListener {
     }
 
     private fun loadBranchStock(){
-        showStock(app.stocks.search(branchStock.id))
+        var filteredStock = app.stocks.filterStock(branchStock.id)
+        showStock(filteredStock)
     }
 
     private fun showStock(stock: List<StockModel>) {

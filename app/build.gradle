@@ -1,10 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
-    id 'com.google.gms.google-services'
 }
-
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -51,6 +50,8 @@ dependencies {
     implementation "com.google.code.gson:gson:2.8.5"
     implementation 'com.google.firebase:firebase-database-ktx:19.7.0'
     implementation 'com.google.firebase:firebase-database:19.7.0'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:20.0.4'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

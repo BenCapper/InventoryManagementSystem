@@ -9,11 +9,14 @@ import android.view.*
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_building_list.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivity
@@ -25,6 +28,10 @@ import org.wit.inventory.models.BuildingModel
 
 class BuildingListActivity : AppCompatActivity(), BuildingListener {
 
+    private companion object{
+        private const val TAG = "BuildingListActivity"
+    }
+    private lateinit var auth: FirebaseAuth
     lateinit var app: MainApp
     private val db = FirebaseDatabase.getInstance().reference.child("Building")
     private lateinit var builds: MutableList<BuildingModel>
@@ -35,9 +42,9 @@ class BuildingListActivity : AppCompatActivity(), BuildingListener {
         getBuildingData()
         setContentView(R.layout.activity_building_list)
         app = application as MainApp
+        auth = Firebase.auth
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-
         //getBuildingData()
         toolbar.title = title
         setSupportActionBar(toolbar)
@@ -66,6 +73,14 @@ class BuildingListActivity : AppCompatActivity(), BuildingListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.logout){
+            Log.i(TAG, "Logout")
+            //LogoutUser
+            auth.signOut()
+            val logoutIntent = Intent(this, LoginActivity::class.java)
+            logoutIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(logoutIntent)
+        }
         when (item.itemId) {
             R.id.item_add -> startActivityForResult<BuildingActivity>(0)
         }

@@ -21,7 +21,8 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".activities.StockActivity" />
         <activity android:name=".activities.StockListActivity" />
-        <activity android:name=".activities.BuildingListActivity">
+        <activity android:name=".activities.BuildingListActivity" />
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
