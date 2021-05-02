@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Inventory Manager</string>
+    <string name="button_addBuilding">Add Branch</string>
+    <string name="hint_buildingName">Branch Name</string>
+    <string name="hint_buildingAddress">Branch Address</string>
+    <string name="menu_addBuilding">Add</string>
+    <string name="menu_cancelBuilding">Cancel</string>
+    <string name="enter_building_name">Enter the Branch Name</string>
+    <string name="save_building">Save Branch</string>
+    <string name="button_addImage">Add Image</string>
+    <string name="select_building_image">Select Branch Image</string>
+    <string name="change_building_image">Change Image</string>
+    <string name="building_image">Branch Image</string>
+    <string name="button_location">Set Location</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="menu_deleteBuilding">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="select">Select</string>
+
+    <string name="button_addStock">Add Item</string>
+    <string name="hint_stockName">Item Name</string>
+    <string name="hint_stockBranch">Branch Name</string>
+    <string name="hint_stockDept">Department</string>
+    <string name="hint_stockWeight">Item Weight</string>
+    <string name="hint_stockQuantity">Item Quantity</string>
+    <string name="hint_stockPrice">Item Price</string>
+    <string name="menu_addStock">Add Item</string>
+    <string name="menu_cancelStock">Cancel</string>
+    <string name="enter_stock_name">Enter the Item Name</string>
+    <string name="save_stock">Save</string>
+    <string name="button_addStockImage">Add Image</string>
+    <string name="select_stock_image">Select Image</string>
+    <string name="change_stock_image">Change Image</string>
+    <string name="stock_image">Item Image</string>
+    <string name="menu_deleteStock">Delete</string>
+    <string name="editStock">Edit</string>
+    <string name="selectStock">Select</string>
+    <string name="branchName">Stock</string>
+    <string name="departmentToast">Enter Department Name</string>
+    <string name="nameToast">Enter Item Name</string>
+    <string name="weightToast">Enter Item Weight</string>
+    <string name="priceToast">Enter Item Price</string>
+    <string name="quantityToast">Enter Item Quantity</string>
+    <string name="imageToast">Select an Image</string>
+    <string name="search_branch">Search Branches</string>
+    <string name="search_stock">Search Stock</string>
+</resources>

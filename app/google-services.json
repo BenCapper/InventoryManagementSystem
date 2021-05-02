@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "464203043778",
+    "project_id": "inventorymanager-ada13",
+    "storage_bucket": "inventorymanager-ada13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464203043778:android:1244b66ef0849e973fbc5b",
+        "android_client_info": {
+          "package_name": "org.wit.inventory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464203043778-tad2q2pmmd0iu3674cfh0odk036e7r69.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV72toReRIw7HVSy1QPMmQb0SOjcGQ0vY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464203043778-tad2q2pmmd0iu3674cfh0odk036e7r69.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

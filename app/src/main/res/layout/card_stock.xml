@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:elevation="24dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/stockImageIcon"
+            android:contentDescription="@string/building_image"
+            android:layout_width="64dp"
+            android:layout_height="84dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="16dp"/>
+
+        <TextView
+            android:id="@+id/stockListName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/stockImageIcon"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/stockListWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/orange"
+            android:layout_below="@id/stockListPrice"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/textViewWeight" />
+
+        <TextView
+            android:id="@+id/textViewWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/stockListPrice"
+            android:layout_toEndOf="@+id/stockImageIcon"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:text="Weight: " />
+
+        <TextView
+            android:id="@+id/stockListPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/orange"
+            android:layout_below="@id/stockListName"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/textViewPrice" />
+
+
+        <TextView
+            android:id="@+id/textViewPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/stockListName"
+            android:layout_toEndOf="@+id/stockImageIcon"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:text="Price: € " />
+
+        <TextView
+            android:id="@+id/textViewDept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/stockListWeight"
+            android:layout_toEndOf="@+id/stockImageIcon"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:text="Department: " />
+
+        <TextView
+            android:id="@+id/stockListDept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewWeight"
+            android:layout_toEndOf="@+id/textViewDept"
+            android:textStyle="bold"
+            android:textColor="@color/orange" />
+
+        <TextView
+            android:id="@+id/inStockNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add"
+            android:layout_marginTop="2dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="23dp"
+            android:textColor="@color/orange"
+            android:textStyle="bold"
+            android:inputType="number"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textViewInStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:textSize="11sp"
+            android:text="In Stock " />
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="15dp"
+            android:background="@mipmap/add_icon" />
+
+        <Button
+            android:id="@+id/minus"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="15dp"
+            android:background="@mipmap/minus_icon" />
+
+
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
